@@ -28,12 +28,17 @@ INSTALLED_APPS = [
 
     #3rd party app
     "rest_framework",
+    "corsheaders",
 
     #Local_app
     "status_app",
 ]
 
 MIDDLEWARE = [
+
+    "corsheaders.middleware.CorsMiddleware",
+    #3rd party middleware
+
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -42,6 +47,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = "myrestapi.urls"
 

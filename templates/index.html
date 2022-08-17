@@ -9,25 +9,8 @@
   <body>
     <p>Testing the Api with a js code:</p>
 
-    <script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
 
-
-let body = {
-  user:1,
-  content: "i am from Client Side",
-  image: null
-}
-    fetch("http://127.0.0.1:8000/apiv1/status/create/",{
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(body),
-    })
-      .then(response=>response.json())
-      .then(data=>console.log(data))
-
-
-    </script>
   </body>
 </html>
