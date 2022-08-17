@@ -5,6 +5,7 @@ from .models import Status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
+from rest_framework import generics
 # Create your views here.
 
 #creating a class based view Like before:
@@ -18,3 +19,11 @@ class StatusAPIView(APIView):
 
         return Response(status_serializer.data)
         #now we have to call this view
+
+class StatusListAPIView(generics.ListAPIView):
+    queryset = Status.objects.all()
+    serializer_class = StatusSerializer
+
+class StatusCreateAPIView(generics.CreateAPIView):
+    queryset =Status.objects.all()
+    serializer_class = StatusSerializer
