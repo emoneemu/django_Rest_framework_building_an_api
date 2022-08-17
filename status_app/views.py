@@ -27,3 +27,30 @@ class StatusListAPIView(generics.ListAPIView):
 class StatusCreateAPIView(generics.CreateAPIView):
     queryset =Status.objects.all()
     serializer_class = StatusSerializer
+
+class StatusDetailAPIView(generics.RetrieveAPIView):
+    queryset = Status.objects.all()
+    serializer_class = StatusSerializer
+
+    #it's a way to retrieve unique fields
+    lookup_field = "id"
+
+    #another way to retrive unique fields: using(or should i say rewrite ;) ) a function get_object()
+
+    #def get_object(self,*args,**kwargs):
+    #    kwargs = self.kwargs
+    #    #print(kwargs)
+    #    kw_id = kwargs.get("id")
+    #    return Status.objects.get(id=kw_id)
+
+
+class StatusUpdateAPIView(generics.UpdateAPIView):
+    queryset = Status.objects.all()
+    serializer_class = StatusSerializer
+    lookup_field = "id"
+
+
+class StatusDeleteAPIView(generics.DestroyAPIView):
+    queryset = Status.objects.all()
+    serializer_class = StatusSerializer
+    lookup_field = "id"
